@@ -90,62 +90,77 @@ const buildings: Array<Building> = [
 ]
 
 function Map() {
+  let _width = 0
+  let _height = 0
+
   const [scale, setScale] = useState(0)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
 
-  const [offsetX, setOffsetX] = useState(0)
-  const [offsetY, setOffsetY] = useState(0)
-
   let isDragging = false
   let initialX = 0
   let initialY = 0
+  let _offsetX = 0
+  let _offsetY = 0
+
+  const [offsetX, setOffsetX] = useState(0)
+  const [offsetY, setOffsetY] = useState(0)
 
   const handleWindowSize = () => {
-    const _width = window.innerWidth
-    const _height = window.innerHeight
-
-    if (_width / _height < MAP_RATE) {
+    if (window.innerWidth / window.innerHeight < MAP_RATE) {
+      _height = window.innerHeight
+      _width = _height * MAP_RATE
       setScale(_height / ORIGIN_MAP_HEIGHT)
       setWidth(_height * MAP_RATE)
       setHeight(_height)
     } else {
+      _width = window.innerWidth
+      _height = _width / MAP_RATE
       setScale(_width / ORIGIN_MAP_WIDTH)
       setWidth(_width)
       setHeight(_width / MAP_RATE)
     }
   }
 
-  // const handleMouseDown = (e: any) => {
-  //   e.preventDefault()
-  //   const { clientX, clientY } = e
-  //   isDragging = true
-  //   initialX = clientX
-  //   initialY = clientY
-  // }
+  const handleMouseDown = (e: any) => {
+    isDragging = true
 
-  // const handleMouseMove = (e: any) => {
-  //   if (isDragging) {
-  //     e.preventDefault()
-  //     const { clientX, clientY } = e
-  //     initialX += clientX
-  //     initialY += clientY
-  //     setOffsetX(initialX)
-  //     setOffsetY(initialY)
-  //   }
-  // }
+    e.preventDefault()
+    const { clientX, clientY } = e
+    initialX = clientX - _offsetX
+    initialY = clientY - _offsetY
+  }
 
-  // const handleMouseUp = () => {
-  //   isDragging = false
-  // }
+  const handleMouseMove = (e: any) => {
+    if (isDragging) {
+      e.preventDefault()
+      const { clientX, clientY } = e
+      _offsetX = clientX - initialX
+      _offsetY = clientY - initialY
+
+      if (_offsetX >= window.innerWidth - _width && _offsetX <= 0) {
+        setOffsetX(_offsetX)
+      }
+
+      if (_offsetY >= window.innerHeight - _height && _offsetY < 0) {
+        setOffsetY(_offsetY)
+      }
+    }
+  }
+
+  const handleMouseUp = () => {
+    isDragging = false
+  }
 
   useEffect(() => {
     handleWindowSize()
+  }, [scale, width, height])
 
-    document.addEventListener('resize', handleWindowSize)
-    // document.addEventListener('mousedown', handleMouseDown)
-    // document.addEventListener('mousemove', handleMouseMove)
-    // document.addEventListener('mouseup', handleMouseUp)
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSize)
+    document.addEventListener('mousedown', handleMouseDown)
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
   }, [])
 
   return (
