@@ -1,6 +1,11 @@
 import BuildingLabel from './BuildingLabel'
+import { useAppContext } from 'context'
 
 function Building({ building }: { building: Building }) {
+  const { showBuildingModal } = useAppContext()
+  const handleOnClick = () => {
+    console.log('object')
+  }
   return (
     <>
       <div
@@ -11,6 +16,7 @@ function Building({ building }: { building: Building }) {
           width: building.width,
           height: building.height,
         }}
+        onClick={handleOnClick}
       >
         <BuildingLabel building={building} />
         <div>
