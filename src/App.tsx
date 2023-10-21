@@ -1,15 +1,11 @@
 import { useRoutes } from 'react-router-dom'
 import routes from './routes'
-import "./App.css"
+import './App.css'
 
 function App() {
   const content = useRoutes(routes)
 
-  return (
-    <>
-      {content}
-    </>
-  )
+  return <>{content}</>
 }
 
 export default App

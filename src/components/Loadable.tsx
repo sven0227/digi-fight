@@ -1,11 +1,11 @@
-import { Suspense } from 'react';
+import { Suspense } from 'react'
 
 const Loadable = (Component: any) => (props: any) => {
-	return (
-		<Suspense>
-			<Component {...props} />
-		</Suspense>
-	);
-};
+  return (
+    <Suspense>
+      <Component {...props} />
+    </Suspense>
+  )
+}
 
-export default Loadable;
+export default Loadable
