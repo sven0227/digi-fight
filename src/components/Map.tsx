@@ -116,36 +116,36 @@ function Map() {
     }
   }
 
-  const handleMouseDown = (e: any) => {
-    e.preventDefault()
-    const { clientX, clientY } = e
-    isDragging = true
-    initialX = clientX
-    initialY = clientY
-  }
+  // const handleMouseDown = (e: any) => {
+  //   e.preventDefault()
+  //   const { clientX, clientY } = e
+  //   isDragging = true
+  //   initialX = clientX
+  //   initialY = clientY
+  // }
 
-  const handleMouseMove = (e: any) => {
-    if (isDragging) {
-      e.preventDefault()
-      const { clientX, clientY } = e
-      initialX += clientX
-      initialY += clientY
-      setOffsetX(initialX)
-      setOffsetY(initialY)
-    }
-  }
+  // const handleMouseMove = (e: any) => {
+  //   if (isDragging) {
+  //     e.preventDefault()
+  //     const { clientX, clientY } = e
+  //     initialX += clientX
+  //     initialY += clientY
+  //     setOffsetX(initialX)
+  //     setOffsetY(initialY)
+  //   }
+  // }
 
-  const handleMouseUp = () => {
-    isDragging = false
-  }
+  // const handleMouseUp = () => {
+  //   isDragging = false
+  // }
 
   useEffect(() => {
     handleWindowSize()
 
     document.addEventListener('resize', handleWindowSize)
-    document.addEventListener('mousedown', handleMouseDown)
-    document.addEventListener('mousemove', handleMouseMove)
-    document.addEventListener('mouseup', handleMouseUp)
+    // document.addEventListener('mousedown', handleMouseDown)
+    // document.addEventListener('mousemove', handleMouseMove)
+    // document.addEventListener('mouseup', handleMouseUp)
   }, [])
 
   return (
