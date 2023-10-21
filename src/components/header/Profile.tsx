@@ -1,11 +1,21 @@
+import { useState } from 'react'
+import { LeftArrow } from 'assets/icons'
+import DepositModal from './DepositModal'
+
 function Profile() {
+  const [showDeposit, setShowDeposit] = useState<boolean>(false)
+
+  const handleOnClickBalances = () => {
+    setShowDeposit((show) => !show)
+  }
+
   return (
     <>
       <div className='flex flex-col w-full gap-1 max-w-[300px]'>
         <div className='flex relative gap-1'>
           <img className='w-20 h-20 cursor-pointer' src='/images/characters/heist16017.png' />
           <div className='flex flex-1 flex-col gap-1 w-full'>
-            <button className='Effect YellowBackground'>
+            <button className='Effect YellowBackground' onClick={handleOnClickBalances}>
               <div className='flex items-center gap-2 w-full'>
                 <div className='flex flex-1 gap-1 items-center'>
                   <img className='w-5 h-5 fill-none' src='/images/misc/banana.png' />
@@ -15,6 +25,9 @@ function Profile() {
                 <div className='flex flex-1 gap-1 items-center'>
                   <img className='w-5 h-5 fill-none' src='/images/misc/cocoa.png' />
                   <span>9,999</span>
+                </div>
+                <div>
+                  <LeftArrow isRotate={showDeposit} />
                 </div>
               </div>
             </button>
@@ -27,11 +40,28 @@ function Profile() {
               </div>
             </button>
           </div>
-          <button className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
-            <div className='flex flex-1 gap-1 items-center justify-center'>
-              <h2 className='text-[32px] text-white'>HUB</h2>
+          {!showDeposit && (
+            <button className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
+              <div className='flex flex-1 gap-1 items-center justify-center'>
+                <h2 className='text-[32px] text-white'>HUB</h2>
+              </div>
+            </button>
+          )}
+          {showDeposit && (
+            <div className='Effect flex-col absolute left-[calc(100%)] w-[240px] ml-2 p-0'>
+              <DepositModal />
+              {/* <button className='Effect BlackBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
+                <div className='flex flex-1 gap-1 items-center justify-center'>
+                  <h2 className='text-[32px] text-white'>HUB</h2>
+                </div>
+              </button>
+              <button className='Effect BlackBackground flex absolute left-[calc(150%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
+                <div className='flex flex-1 gap-1 items-center justify-center'>
+                  <h2 className='text-[32px] text-white'>HUB</h2>
+                </div>
+              </button> */}
             </div>
-          </button>
+          )}
         </div>
         <div className='w-full'>
           <button className='Effect GrayBackground flex relative justify-between w-full'>

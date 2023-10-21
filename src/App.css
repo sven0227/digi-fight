@@ -5,6 +5,7 @@
   --black-trans: #141414e6;
   --gray: #353535;
   --low-risk: #00b47e;
+  --light-gray: #f0f0f0;
   --dark-gray: rgb(20, 20, 20);
   --dark-gray-trans6: rgba(20, 20, 20, 0.6);
   --dark-gray-trans8: rgba(20, 20, 20, 0.8);
@@ -24,6 +25,10 @@
 
 .GrayBackground {
   background: var(--gray);
+}
+
+.LightGrayBackground {
+  background: var(--light-gray);
 }
 
 button {
