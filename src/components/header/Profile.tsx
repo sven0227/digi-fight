@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { LeftArrow } from 'assets/icons'
 import DepositPanel from './DepositPanel'
 import SettingsPanel from './SettingsPanel'
+import HubModal from './HubModal'
+import Modal from 'components/common/containers/Modal'
 
 enum Panel {
   None = 0,
@@ -11,6 +13,11 @@ enum Panel {
 
 function Profile() {
   const [selectedPanel, setSelectedPanel] = useState<Panel>(Panel.None)
+  const [isShowHubModal, setIsShowHubModal] = useState<boolean>(false)
+
+  const handleOnClickHub = () => {
+    setIsShowHubModal(true)
+  }
 
   const handleOnClickBalances = () => {
     if (selectedPanel === Panel.Deposite) {
@@ -50,6 +57,9 @@ function Profile() {
                 </div>
               </div>
             </button>
+            <Modal isShow={isShowHubModal} onClose={() => setIsShowHubModal(false)}>
+              <HubModal />
+            </Modal>
             <button
               className='Effect YellowBackground flex items-center gap-2 w-full'
               onClick={handleOnClickSettings}
@@ -64,7 +74,10 @@ function Profile() {
             </button>
           </div>
           {selectedPanel === Panel.None && (
-            <button className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
+            <button
+              className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'
+              onClick={handleOnClickHub}
+            >
               <div className='flex flex-1 gap-1 items-center justify-center'>
                 <h2 className='text-[32px] text-white'>HUB</h2>
               </div>

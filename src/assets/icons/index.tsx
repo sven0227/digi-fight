@@ -1,4 +1,4 @@
-export function LeftArrow({ isRotate = false }) {
+export function LeftArrow({ isRotate = false, color = '#fff' }) {
   const style = isRotate ? 'rotate-180 transition-all' : 'transition-all'
   return (
     <svg
@@ -9,7 +9,7 @@ export function LeftArrow({ isRotate = false }) {
       viewBox='0 0 16 16'
       className={style}
     >
-      <path fill='currentColor' d='m5.409 16 8-8-8-8-2.27 2.27L8.87 8l-5.73 5.73L5.41 16Z'></path>
+      <path fill={color} d='m5.409 16 8-8-8-8-2.27 2.27L8.87 8l-5.73 5.73L5.41 16Z'></path>
     </svg>
   )
 }

@@ -17,7 +17,7 @@ const NftsManagement = ({ isShow, onClose }: SettingsModalProps) => {
   if (!isShow) return null
 
   return (
-    <Modal onClose={onClose}>
+    <Modal isShow={isShow} onClose={onClose}>
       <div className='flex flex-col flex-grow bg-gray-200'>
         <div className='flex justify-between items-center p-8'>
           <div className='text-[30px] font-bold'>NFT MANAGEMENT</div>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import SettingsModal from './SettingsModal'
+import SettingsModal from './NftsManagementModal'
 
 const SettingsPanel = () => {
   const [isShowSettingsModal, setIsShowSettingsModal] = useState<boolean>(false)
