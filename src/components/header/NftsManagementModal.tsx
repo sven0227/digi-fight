@@ -12,7 +12,7 @@ const defaultOption = options[0]
 import 'react-dropdown/style.css'
 import { useResolvedPath } from 'react-router-dom'
 
-const SettingsModal = ({ isShow, onClose }: SettingsModalProps) => {
+const NftsManagement = ({ isShow, onClose }: SettingsModalProps) => {
   const [showDropdown, setShowDropdown] = useState(false)
   if (!isShow) return null
 
@@ -99,4 +99,4 @@ const SettingsModal = ({ isShow, onClose }: SettingsModalProps) => {
   )
 }
 
-export default SettingsModal
+export default NftsManagement
