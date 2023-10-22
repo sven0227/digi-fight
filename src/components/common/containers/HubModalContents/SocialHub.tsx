@@ -1,8 +1,16 @@
+import {
+  ActivePlayersIcon,
+  RektIcon,
+  RemainingIcon,
+  TotalBurned,
+  TotalEmitted,
+  SocialIcon,
+} from 'assets/HubModal/socialModal'
 import { LeftArrow } from 'assets/icons'
 
 const SocialHub = () => {
   return (
-    <div className='w-full h-full bg-[url("/public/images/Hub/SocialHub/background.png")] bg-cover'>
+    <div className='w-full h-full bg-[url("/images/Hub/SocialHub/background.png")] bg-cover'>
       <div className='w-full h-full flex bg-gradient-to-b from-transparent to-gray-900 text-white'>
         {/* Sidebar */}
         <div className='w-[350px] h-full max-h-full'>
@@ -10,11 +18,21 @@ const SocialHub = () => {
             <div className='w-[150px] p-4 bg-black '>
               <div className='text-yellow-400'>CG180Q...SFC5C</div>
               <div className='text-white'>
-                <div>-</div>
-                <div>-</div>
-                <div>0</div>
-                <div>0</div>
-                <div>0</div>
+                <div className='flex gap-2'>
+                  <SocialIcon variant='twitter' />-
+                </div>
+                <div className='flex gap-2'>
+                  <SocialIcon variant='discord' /> -
+                </div>
+                <div className='flex gap-2'>
+                  <SocialIcon variant='banana' /> 0
+                </div>
+                <div className='flex gap-2'>
+                  <SocialIcon variant='coco' />0
+                </div>
+                <div className='flex gap-2'>
+                  <SocialIcon variant='paper' />0
+                </div>
               </div>
             </div>
           </div>
@@ -23,7 +41,9 @@ const SocialHub = () => {
             <div className='grid grid-cols-2 items-center gap-4'>
               <div className=''>
                 <label className='text-sm'>Active Players</label>
-                <p className='text-lg font-bold'>2039</p>
+                <p className='text-lg font-bold flex items-center gap-3'>
+                  <ActivePlayersIcon />0
+                </p>
               </div>
               <div className='h-10 bg-gray-400 flex justify-center items-center'>
                 <span>Player search </span>
@@ -33,19 +53,30 @@ const SocialHub = () => {
               </div>
               <div className=''>
                 <label className='text-sm'>Total $COCO Emitted:</label>
-                <p className='text-lg font-bold'>9.37B</p>
+                <p className='text-lg font-bold flex items-center gap-3'>
+                  <TotalEmitted /> 9.37B
+                </p>
               </div>
               <div className=''>
-                <label className='text-sm'>Active $COCO Burned:</label>
-                <p className='text-lg font-bold'>9.98B</p>
+                <label className='text-sm'>Total $COCO Burned:</label>
+                <p className='text-lg font-bold flex items-center gap-3'>
+                  <TotalBurned />
+                  9.98B
+                </p>
               </div>
               <div className=''>
                 <label className='text-sm'>Remaining $COCO:</label>
-                <p className='text-lg font-bold'>40.6B</p>
+                <p className='text-lg font-bold flex items-center gap-3'>
+                  <RemainingIcon />
+                  40.6B
+                </p>
               </div>
               <div className=''>
                 <label className='text-sm'>Total Robbers Rekt:</label>
-                <p className='text-lg font-bold'>785</p>
+                <p className='text-lg font-bold flex items-center gap-3'>
+                  <RektIcon />
+                  785
+                </p>
               </div>
             </div>
           </div>
@@ -104,7 +135,7 @@ const SocialHub = () => {
               <div className='relative h-[300px] w-full border-solid border-black border-2 shadow-[_2px_2px] shadow-black'>
                 <img
                   className='object-cover h-full w-full'
-                  src='/public/images/Hub/SocialHub/social.png'
+                  src='/images/Hub/SocialHub/social.png'
                   height={300}
                 />
                 <div className='absolute top-0 w-full h-full flex flex-col justify-center items-center gap-4 '>
