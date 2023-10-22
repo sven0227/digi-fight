@@ -1,12 +1,31 @@
 import { useState } from 'react'
 import { LeftArrow } from 'assets/icons'
-import DepositModal from './DepositModal'
+import DepositPanel from './DepositPanel'
+import SettingsPanel from './SettingsPanel'
+
+enum Panel {
+  None = 0,
+  Deposite,
+  Settings,
+}
 
 function Profile() {
-  const [showDeposit, setShowDeposit] = useState<boolean>(false)
+  const [selectedPanel, setSelectedPanel] = useState<Panel>(Panel.None)
 
   const handleOnClickBalances = () => {
-    setShowDeposit((show) => !show)
+    if (selectedPanel === Panel.Deposite) {
+      setSelectedPanel(Panel.None)
+    } else {
+      setSelectedPanel(Panel.Deposite)
+    }
+  }
+
+  const handleOnClickSettings = () => {
+    if (selectedPanel === Panel.Settings) {
+      setSelectedPanel(Panel.None)
+    } else {
+      setSelectedPanel(Panel.Settings)
+    }
   }
 
   return (
@@ -27,39 +46,38 @@ function Profile() {
                   <span>9,999</span>
                 </div>
                 <div>
-                  <LeftArrow isRotate={showDeposit} />
+                  <LeftArrow isRotate={selectedPanel === Panel.Deposite} />
                 </div>
               </div>
             </button>
-            <button className='Effect YellowBackground'>
-              <div className='flex items-center gap-2 w-full'>
-                <div className='flex flex-1 gap-1 items-center'>
-                  <img className='w-5 h-5 fill-none' src='/images/misc/setting.png' />
-                  <span>Settings</span>
-                </div>
+            <button
+              className='Effect YellowBackground flex items-center gap-2 w-full'
+              onClick={handleOnClickSettings}
+            >
+              <div className='w-full flex gap-1'>
+                <img className='w-5 h-5 fill-none' src='/images/misc/setting.png' />
+                <span>Settings</span>
+              </div>
+              <div>
+                <LeftArrow isRotate={selectedPanel === Panel.Settings} />
               </div>
             </button>
           </div>
-          {!showDeposit && (
+          {selectedPanel === Panel.None && (
             <button className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
               <div className='flex flex-1 gap-1 items-center justify-center'>
                 <h2 className='text-[32px] text-white'>HUB</h2>
               </div>
             </button>
           )}
-          {showDeposit && (
+          {selectedPanel === Panel.Deposite && (
             <div className='Effect flex-col absolute left-[calc(100%)] w-[240px] ml-2 p-0'>
-              <DepositModal />
-              {/* <button className='Effect BlackBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
-                <div className='flex flex-1 gap-1 items-center justify-center'>
-                  <h2 className='text-[32px] text-white'>HUB</h2>
-                </div>
-              </button>
-              <button className='Effect BlackBackground flex absolute left-[calc(150%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'>
-                <div className='flex flex-1 gap-1 items-center justify-center'>
-                  <h2 className='text-[32px] text-white'>HUB</h2>
-                </div>
-              </button> */}
+              <DepositPanel />
+            </div>
+          )}
+          {selectedPanel === Panel.Settings && (
+            <div className='LightGrayBackground Effect flex-col absolute left-[calc(100%)] ml-2 p-4'>
+              <SettingsPanel />
             </div>
           )}
         </div>

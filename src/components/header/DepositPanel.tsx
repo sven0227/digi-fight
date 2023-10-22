@@ -24,7 +24,7 @@ const TabButton: React.FC<React.PropsWithChildren<TabButtonProps>> = ({
   )
 }
 
-export default function DepositModal() {
+export default function DepositPanel() {
   const [selectedTab, setSelectedTab] = useState(0)
   return (
     <>
@@ -59,7 +59,7 @@ export default function DepositModal() {
           <div className='p-3 flex justify-between items-center font-medium'>
             <div>Amount:</div>
             <input
-              className='px-3 py-1 w-24 border-solid border-black border-2 text-right  focus:rounded-none rounded-none'
+              className='px-3 py-1 w-24 border-solid border-black border-2 text-right  focus:rounded-none act'
               placeholder='0'
             />
           </div>
