@@ -1,6 +1,7 @@
 import modalTitleImg from 'assets/HubModal/download.jfif'
 import { HubTabIcon } from 'assets/HubModal/tabIcons'
-import { SocialHub } from 'components/common/containers/HubModalContents'
+import { SocialHub, VaultTab } from 'components/common/containers/HubModalContents'
+import MarketTab from 'components/common/containers/HubModalContents/MarketTab'
 import { useRef, useState } from 'react'
 
 const Tab = ({
@@ -71,7 +72,11 @@ const HubModal = () => {
             <HubTabIcon variant='miniGames' color={getColor(8)} />
           </Tab>
         </div>
-        <div className='bg-gray-200 flex-grow'>{tabIndex === 0 && <SocialHub />}</div>
+        <div className='bg-gray-200 flex-grow'>
+          {tabIndex === 0 && <SocialHub />}
+          {tabIndex === 1 && <VaultTab />}
+          {tabIndex === 2 && <MarketTab />}
+        </div>
       </div>
     </section>
   )

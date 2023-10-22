@@ -8,7 +8,7 @@ import {
 } from 'assets/HubModal/socialModal'
 import { LeftArrow } from 'assets/icons'
 
-const SocialHub = () => {
+const SocialTab = () => {
   return (
     <div className='w-full h-full bg-[url("/images/Hub/SocialHub/background.png")] bg-cover'>
       <div className='w-full h-full flex bg-gradient-to-b from-transparent to-gray-900 text-white'>
@@ -161,4 +161,4 @@ const SocialHub = () => {
   )
 }
 
-export default SocialHub
+export default SocialTab
