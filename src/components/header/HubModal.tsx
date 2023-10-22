@@ -1,6 +1,6 @@
 import modalTitleImg from 'assets/HubModal/download.jfif'
 import { HubTabIcon } from 'assets/HubModal/tabIcons'
-import { SocialHub, VaultTab } from 'components/common/containers/HubModalContents'
+import { BlackMarketTab, SocialHub, VaultTab } from 'components/common/containers/HubModalContents'
 import MarketTab from 'components/common/containers/HubModalContents/MarketTab'
 import { useRef, useState } from 'react'
 
@@ -76,6 +76,7 @@ const HubModal = () => {
           {tabIndex === 0 && <SocialHub />}
           {tabIndex === 1 && <VaultTab />}
           {tabIndex === 2 && <MarketTab />}
+          {tabIndex === 3 && <BlackMarketTab />}
         </div>
       </div>
     </section>
