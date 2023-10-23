@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Modal from 'components/common/containers/Modal'
-import { Dropdown } from 'flowbite-react'
 
 type SettingsModalProps = {
   isShow: boolean
