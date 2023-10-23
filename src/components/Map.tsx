@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Building from './Building'
 import { useAppContext } from 'context'
-import { HQModal } from './BuildingModals/index.ts'
+import { HQModal, SafeHouseModal } from './BuildingModals/index.ts'
 import Modal from './common/containers/Modal'
 
 const ORIGIN_MAP_WIDTH = 3840
@@ -200,13 +200,13 @@ function Map() {
             info.top = info.top * scale - info.height / 2
             info.left = info.left * scale - info.width / 2
             return (
-              <Building key={index} building={info} onClick={() => setBuildingModalId(index)} />
+              <Building key={index} building={info} onClick={() => setBuildingModalId(index + 1)} />
             )
           })}
 
           <Modal isShow={buildingModalId > 0} onClose={() => setBuildingModalId(0)}>
-            {buildingModalId === 1 && <HQModal />}
-            <HQModal />
+            {buildingModalId === 1 && <SafeHouseModal />}
+            {buildingModalId === 2 && <HQModal />}
           </Modal>
         </div>
       </div>
