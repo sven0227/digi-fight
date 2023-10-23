@@ -19,9 +19,9 @@ export function CloseIcon() {
     <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'>
       <path
         fill='#fff'
-        fill-rule='evenodd'
+        fillRule='evenodd'
         d='M8 10.27 2.27 16 0 13.73 5.73 8 0 2.27 2.27 0 8 5.73 13.73 0 16 2.27 10.27 8 16 13.73 13.73 16 8 10.27Z'
-        clip-rule='evenodd'
+        clipRule='evenodd'
       ></path>
     </svg>
   )

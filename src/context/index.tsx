@@ -2,17 +2,17 @@
 import React, { FC, createContext, useContext, useEffect, useState } from 'react'
 
 type ContextType = {
-  showBuildingModal: boolean
-  setShowBuildingModal: (isShow: boolean) => void
+  buildingModalId: number
+  setBuildingModalId: (buildingModalId: number) => void
 }
 
 export const AppContext = createContext<ContextType | undefined>(undefined)
 
 export const AppContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [showBuildingModal, setShowBuildingModal] = useState<boolean>(false)
+  const [buildingModalId, setBuildingModalId] = useState<number>(0)
 
   return (
-    <AppContext.Provider value={{ showBuildingModal, setShowBuildingModal }}>
+    <AppContext.Provider value={{ buildingModalId, setBuildingModalId }}>
       {children}
     </AppContext.Provider>
   )

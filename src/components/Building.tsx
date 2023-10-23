@@ -1,10 +1,12 @@
 import BuildingLabel from './BuildingLabel'
 import { useAppContext } from 'context'
+import Modal from './common/containers/Modal'
+import { HQModal } from './BuildingModals.tsx'
 
 function Building({ building }: { building: Building }) {
-  const { showBuildingModal } = useAppContext()
+  const { buildingModalId, setBuildingModalId } = useAppContext()
   const handleOnClick = () => {
-    console.log('object')
+    setBuildingModalId(1)
   }
   return (
     <>
@@ -25,6 +27,9 @@ function Building({ building }: { building: Building }) {
           </div>
         </div>
       </div>
+      <Modal isShow={buildingModalId > 0} onClose={() => setBuildingModalId(0)}>
+        {buildingModalId === 1 && <HQModal />}
+      </Modal>
     </>
   )
 }
