@@ -189,6 +189,7 @@ function Map() {
               playsInline={true}
               width={width}
               height={height}
+              muted={true}
             />
           </div>
           {buildings.map((building, index) => {
