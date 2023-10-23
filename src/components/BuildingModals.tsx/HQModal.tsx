@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Img } from 'react-image'
 import { TabItem, TabsArray, Tabs } from './BuildingTabs'
 
 const HQModal = () => {
@@ -36,8 +37,12 @@ const HQModal = () => {
         <Tabs tabs={tabs} tabIndex={tabIndex} setTabIndex={setTabIndex} />
       </div>
       <div className='flex-grow max-h-full flex flex-col bg-slate-100'>
-        <div>
-          <img className='w-[900px]' src={tabs[tabIndex].imageUrl} />
+        <div className='w-[900px] h-[117px]'>
+          <Img
+            className='w-[900px]'
+            src={tabs[tabIndex].imageUrl}
+            loader={<div className='w-full h-[117px] bg-green-300'>Loading</div>}
+          />
         </div>
         <div className='flex bg-slate-200 flex-grow p-4 gap-4 overflow-auto'>
           {/* sidebar */}
