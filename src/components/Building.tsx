@@ -3,11 +3,7 @@ import { useAppContext } from 'context'
 import Modal from './common/containers/Modal'
 import { HQModal } from './BuildingModals.tsx'
 
-function Building({ building }: { building: Building }) {
-  const { buildingModalId, setBuildingModalId } = useAppContext()
-  const handleOnClick = () => {
-    setBuildingModalId(1)
-  }
+function Building({ building, onClick }: { building: Building; onClick: () => void }) {
   return (
     <>
       <div
@@ -18,7 +14,7 @@ function Building({ building }: { building: Building }) {
           width: building.width,
           height: building.height,
         }}
-        onClick={handleOnClick}
+        onClick={onClick}
       >
         <BuildingLabel building={building} />
         <div>
@@ -27,9 +23,6 @@ function Building({ building }: { building: Building }) {
           </div>
         </div>
       </div>
-      <Modal isShow={buildingModalId > 0} onClose={() => setBuildingModalId(0)}>
-        {buildingModalId === 1 && <HQModal />}
-      </Modal>
     </>
   )
 }

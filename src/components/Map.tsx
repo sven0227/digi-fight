@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import Building from './Building'
+import { useAppContext } from 'context'
+import { HQModal } from './BuildingModals.tsx'
+import Modal from './common/containers/Modal'
 
 const ORIGIN_MAP_WIDTH = 3840
 const ORIGIN_MAP_HEIGHT = 2400
@@ -90,6 +93,7 @@ const buildings: Array<Building> = [
 ]
 
 function Map() {
+  const { buildingModalId, setBuildingModalId } = useAppContext()
   let _width = 0
   let _height = 0
 
@@ -171,7 +175,7 @@ function Map() {
 
   return (
     <>
-      <div className='relative overflow-hidden max-w-full max-h-full'>
+      <div className='fixed overflow-hidden max-w-full max-h-full'>
         <div
           className='flex flex-wrap'
           style={{ transform: `translate(${offsetX}px, ${offsetY}px)` }}
@@ -195,8 +199,15 @@ function Map() {
             info.height *= scale * IMAGE_RATE
             info.top = info.top * scale - info.height / 2
             info.left = info.left * scale - info.width / 2
-            return <Building key={index} building={info} />
+            return (
+              <Building key={index} building={info} onClick={() => setBuildingModalId(index)} />
+            )
           })}
+
+          <Modal isShow={buildingModalId > 0} onClose={() => setBuildingModalId(0)}>
+            {buildingModalId === 1 && <HQModal />}
+            <HQModal />
+          </Modal>
         </div>
       </div>
     </>
