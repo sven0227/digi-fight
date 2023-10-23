@@ -35,6 +35,7 @@
     "decs.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "src/components/BuildingModals",
   ],
   "exclude": [
     "node_modules",

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Building from './Building'
 import { useAppContext } from 'context'
-import { HQModal } from './BuildingModals.tsx'
+import { HQModal } from './BuildingModals/index.ts'
 import Modal from './common/containers/Modal'
 
 const ORIGIN_MAP_WIDTH = 3840

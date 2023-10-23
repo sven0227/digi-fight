@@ -1,7 +1,7 @@
 import BuildingLabel from './BuildingLabel'
 import { useAppContext } from 'context'
 import Modal from './common/containers/Modal'
-import { HQModal } from './BuildingModals.tsx'
+import { HQModal } from './BuildingModals/index.ts'
 
 function Building({ building, onClick }: { building: Building; onClick: () => void }) {
   return (
