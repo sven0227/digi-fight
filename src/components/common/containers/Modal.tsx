@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import ReactModal from 'react-modal'
 import { CloseIcon } from 'assets/icons'
 
@@ -12,6 +13,9 @@ const Modal = ({
   onClose: () => void
   children: React.ReactNode
 }) => {
+  useEffect(() => {
+    ReactModal.setAppElement('body')
+  }, [])
   return (
     <ReactModal
       isOpen={isShow}
