@@ -39,7 +39,7 @@ const BlackMarketTab = () => {
         </div>
         <img
           className='object-cover h-[240px] w-full'
-          src='/public/images/Hub/BlackMarket/title.png'
+          src='/images/Hub/BlackMarket/title.png'
           height={300}
           alt='title'
         />
