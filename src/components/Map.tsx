@@ -215,12 +215,20 @@ function Map() {
               <Building
                 key={index}
                 building={info}
-                onClick={() => setBuildingModalId(building.type)}
+                onClick={() => {
+                  setBuildingModalId(building.type)
+                  console.log('building.type :>> ', building.type)
+                }}
               />
             )
           })}
 
-          <Modal isShow={buildingModalId != null} onClose={() => setBuildingModalId(null)}>
+          <Modal
+            isShow={buildingModalId != null}
+            onClose={() => {
+              setBuildingModalId(null)
+            }}
+          >
             {buildingModalId === 'safeHouse' && <SafeHouseModal />}
             {buildingModalId === 'chimpHQ' && <HQModal />}
             {buildingModalId === 'mall' && <MallModal />}
