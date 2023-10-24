@@ -1,4 +1,6 @@
-function BuildingLabel({ building }: { building: Building }) {
+import { BuildingInfo } from 'types'
+
+function BuildingLabel({ building }: { building: BuildingInfo }) {
   return (
     <>
       <div className='absolute top-0 left-1/2 translate-x-[-50%] translate-y-[-125%] z-10'>

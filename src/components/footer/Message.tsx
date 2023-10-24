@@ -1,4 +1,6 @@
-function Message({ message }: { message: Message }) {
+import { Message } from 'types'
+
+function MessageComp({ message }: { message: Message }) {
   const deltaSeconds: number = Math.ceil((Date.now() - message.timestamp) / 1000)
   const deltaMinutes: number = Math.ceil(deltaSeconds / 60)
   const timeString: string =
@@ -20,4 +22,4 @@ function Message({ message }: { message: Message }) {
   )
 }
 
-export default Message
+export default MessageComp

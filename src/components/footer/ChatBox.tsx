@@ -1,4 +1,5 @@
-import Message from './Message'
+import { Message } from 'types'
+import MessageComp from './Message'
 
 const SAMPLE_MESSAGE: Message = {
   user_id: 0,
@@ -33,7 +34,7 @@ function ChatBox() {
             <div>
               <div className='relative flex flex-col-reverse overflow-auto h-auto'>
                 {messages.map((message, index) => {
-                  return <Message key={index} message={message} />
+                  return <MessageComp key={index} message={message} />
                 })}
               </div>
             </div>
