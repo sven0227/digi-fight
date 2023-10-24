@@ -41,7 +41,10 @@ function Profile() {
         <div className='flex relative gap-1'>
           <img className='w-20 h-20 cursor-pointer' src='/images/characters/heist16017.png' />
           <div className='flex flex-1 flex-col gap-1 w-full'>
-            <button className='Effect YellowBackground' onClick={handleOnClickBalances}>
+            <button
+              className='Effect YellowBackground shadow-[_1px_1px]'
+              onClick={handleOnClickBalances}
+            >
               <div className='flex items-center gap-2 w-full'>
                 <div className='flex flex-1 gap-1 items-center'>
                   <img className='w-5 h-5 fill-none' src='/images/misc/banana.png' />
@@ -61,7 +64,7 @@ function Profile() {
               <HubModal />
             </Modal>
             <button
-              className='Effect YellowBackground flex items-center gap-2 w-full'
+              className='Effect YellowBackground flex items-center gap-2 w-full shadow-[_1px_1px]'
               onClick={handleOnClickSettings}
             >
               <div className='w-full flex gap-1'>
@@ -75,7 +78,7 @@ function Profile() {
           </div>
           {selectedPanel === Panel.None && (
             <button
-              className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)]'
+              className='Effect OrangeBackground flex absolute left-[calc(100%)] w-[84px] h-full ml-2 px-0 py-4 items-center border-solid border-2 border-[var(--black)] shadow-[_1px_1px]'
               onClick={handleOnClickHub}
             >
               <div className='flex flex-1 gap-1 items-center justify-center'>
@@ -95,7 +98,7 @@ function Profile() {
           )}
         </div>
         <div className='w-full'>
-          <button className='Effect GrayBackground flex relative justify-between w-full'>
+          <button className='Effect GrayBackground flex relative justify-between w-full shadow-[_1px_1px]'>
             <div className='text-[20px] text-white'>
               MY APES
               <span className='text-[var(--yellow)] ml-2'>0</span>

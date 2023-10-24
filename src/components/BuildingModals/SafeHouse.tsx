@@ -25,7 +25,7 @@ export const Tabs = ({
       {tabs.map((tab: TabItem, index) => {
         const isSelected = tabIndex === tab.id
         const className =
-          'bg-gray-900 text-white text-md font-bold italic py-1 px-7 cursor-pointer '
+          'bg-gray-900 text-white text-md font-bold italic py-1 px-4 cursor-pointer '
         if (!isSelected)
           return (
             <div className={className} key={index} onClick={() => setTabIndex(tab.id)}>

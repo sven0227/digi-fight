@@ -1,3 +1,5 @@
+import { ChimpsIcon, Orangutanscon } from 'assets/icons'
+
 export type TabItem = {
   id: number
   name: string
@@ -30,9 +32,15 @@ export const Tabs = ({
           return (
             <div className='' key={index}>
               <div className='bg-yellow-300 text-2xl italic py-1 px-7 font-bold'>{tab.name}</div>
-              <div className='bg-yellow-400 flex justify-around'>
-                <span>0(0)</span>
-                <span>0(0)</span>
+              <div className='bg-yellow-400 flex justify-around p-1'>
+                <span className='flex gap-2 items-center'>
+                  <ChimpsIcon />
+                  0(0)
+                </span>
+                <span className='flex gap-2 items-center'>
+                  <Orangutanscon />
+                  0(0)
+                </span>
               </div>
             </div>
           )
