@@ -1,9 +1,7 @@
 import BuildingLabel from './BuildingLabel'
-import { useAppContext } from 'context'
-import Modal from './common/containers/Modal'
-import { HQModal } from './BuildingModals/index.ts'
+import { BuildingInfo } from 'types.tsx'
 
-function Building({ building, onClick }: { building: Building; onClick: () => void }) {
+function Building({ building, onClick }: { building: BuildingInfo; onClick: () => void }) {
   return (
     <>
       <div

@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import Building from './Building'
 import { useAppContext } from 'context'
-import { HQModal, SafeHouseModal } from './BuildingModals/index.ts'
+import { HQModal, MallModal, PoliceModal, SafeHouseModal } from './BuildingModals/index.ts'
 import Modal from './common/containers/Modal'
+import { BuildingInfo } from 'types.tsx'
 
 const ORIGIN_MAP_WIDTH = 3840
 const ORIGIN_MAP_HEIGHT = 2400
 const MAP_RATE = ORIGIN_MAP_WIDTH / ORIGIN_MAP_HEIGHT
 const IMAGE_RATE = 60 / 100
 
-const buildings: Array<Building> = [
+const buildings: Array<BuildingInfo> = [
   {
     name: 'SAFEHOUSE',
     image: '/images/buildings/safehouse.png',
@@ -17,6 +18,7 @@ const buildings: Array<Building> = [
     left: 2241,
     width: 658,
     height: 564,
+    type: 'safeHouse',
   },
   {
     name: 'GOLDMAN RACKS',
@@ -25,6 +27,7 @@ const buildings: Array<Building> = [
     left: 2068,
     width: 1028,
     height: 732,
+    type: 'safeHouse',
   },
   {
     name: 'FEDERAL RESERVE',
@@ -33,6 +36,7 @@ const buildings: Array<Building> = [
     left: 331,
     width: 812,
     height: 586,
+    type: 'safeHouse',
   },
   {
     name: 'CURRENCY EXCHANGE',
@@ -41,6 +45,7 @@ const buildings: Array<Building> = [
     left: 623,
     width: 452,
     height: 321,
+    type: 'safeHouse',
   },
   {
     name: 'MALL',
@@ -49,6 +54,7 @@ const buildings: Array<Building> = [
     left: 684,
     width: 1382,
     height: 749,
+    type: 'mall',
   },
   {
     name: 'WAREHOUSE',
@@ -57,6 +63,7 @@ const buildings: Array<Building> = [
     left: 1324,
     width: 997,
     height: 766,
+    type: 'mall',
   },
   {
     name: 'SCRAPYARD',
@@ -65,6 +72,7 @@ const buildings: Array<Building> = [
     left: 2583,
     width: 1079,
     height: 601,
+    type: 'mall',
   },
   {
     name: 'POLICE STATION',
@@ -73,6 +81,7 @@ const buildings: Array<Building> = [
     left: 1007,
     width: 731,
     height: 489,
+    type: 'police',
   },
   {
     name: 'CHIMP HQ',
@@ -81,6 +90,7 @@ const buildings: Array<Building> = [
     left: 1304,
     width: 1392,
     height: 775,
+    type: 'chimpHQ',
   },
   {
     name: 'ORANGUTAN HQ',
@@ -89,6 +99,7 @@ const buildings: Array<Building> = [
     left: 3108,
     width: 1320,
     height: 731,
+    type: 'chimpHQ',
   },
 ]
 
@@ -201,13 +212,19 @@ function Map() {
             info.top = info.top * scale - info.height / 2
             info.left = info.left * scale - info.width / 2
             return (
-              <Building key={index} building={info} onClick={() => setBuildingModalId(index + 1)} />
+              <Building
+                key={index}
+                building={info}
+                onClick={() => setBuildingModalId(building.type)}
+              />
             )
           })}
 
-          <Modal isShow={buildingModalId > 0} onClose={() => setBuildingModalId(0)}>
-            {buildingModalId === 1 && <SafeHouseModal />}
-            {buildingModalId === 2 && <HQModal />}
+          <Modal isShow={buildingModalId != null} onClose={() => setBuildingModalId(null)}>
+            {buildingModalId === 'safeHouse' && <SafeHouseModal />}
+            {buildingModalId === 'chimpHQ' && <HQModal />}
+            {buildingModalId === 'mall' && <MallModal />}
+            {buildingModalId === 'police' && <PoliceModal />}
           </Modal>
         </div>
       </div>

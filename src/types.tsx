@@ -1,16 +1,19 @@
-class Message {
-  user_id: number = 0
-  user_name: string = ''
-  profile_image: string = ''
-  message: string = ''
-  timestamp: number = 0
+export type Message = {
+  user_id: number
+  user_name: string
+  profile_image: string
+  message: string
+  timestamp: number
 }
 
-class Building {
-  name: string = ''
-  image: string = ''
-  top: number = 0
-  left: number = 0
-  width: number = 0
-  height: number = 0
+export type BuildingInfo = {
+  name: string
+  image: string
+  top: number
+  left: number
+  width: number
+  height: number
+  type: BuildingType
 }
+
+export type BuildingType = 'chimpHQ' | 'safeHouse' | 'mall' | 'police'
