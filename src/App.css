@@ -58,10 +58,15 @@ button.Effect:hover {
   background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.9), hsla(0, 0%, 0%, 0.1));
 }
 
+.Building {
+  opacity: 0;
+}
+
 .Building:hover {
   filter: drop-shadow(0 0 5px white) drop-shadow(0 0 5px white) drop-shadow(0 0 5px white)
     drop-shadow(0 0 5px white);
-  transition: 0.3s;
+  transition: all 0.3s;
+  opacity: 1;
 }
 
 .FloatingAnimation {

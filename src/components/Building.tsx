@@ -14,7 +14,7 @@ function Building({ building, onClick }: { building: BuildingInfo; onClick: () =
         }}
         onClick={onClick}
       >
-        <BuildingLabel building={building} />
+        {/* <BuildingLabel building={building} /> */}
         <div>
           <div className='cursor-pointer'>
             <img className='Building' src={building.image} />
