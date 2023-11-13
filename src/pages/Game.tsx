@@ -7,9 +7,9 @@ function Game() {
     <>
       <div className='relative w-full h-full'>
         <Map />
-        <div className='HeaderShadow' />
+        {/* <div className='HeaderShadow' /> */}
         <Header />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   )
